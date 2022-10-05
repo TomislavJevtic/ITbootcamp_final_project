@@ -45,34 +45,11 @@ public abstract class BaseTest {
     @AfterClass
     public void afterClass() throws InterruptedException {
         Thread.sleep(5000);
-        driver.quit();
+        // driver.quit();
     }
-
 
 }
-    /*
-     @Test
-    public void test1(){
-        homePage.loginBtnClick();
-        String expectedUrl ="https://vue-demo.daniel-avellaneda.com/login";
-        String actualUrlR= driver.getCurrentUrl();
-        Assert.assertEquals(actualUrlR,expectedUrl);
-       // System.out.println(loginPage.getUsernameF().getAttribute("type"));
 
-     @Test(dependsOnMethods = "test1")
-    public void test2(){
-        homePage.loginBtnClick();
-        String expUsernameType = "email";
-        String expPasswordType = "password";
-        String actualUsernameType = loginPage.getUsernameF().getAttribute("type");
-        String actualPasswordType = loginPage.getPasswordF().getAttribute("type");
-
-        Assert.assertEquals(expUsernameType,actualUsernameType);
-        Assert.assertEquals(expPasswordType,actualPasswordType);
-
-    }
-    }
-     */
 
 
 
