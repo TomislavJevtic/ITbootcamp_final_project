@@ -1,6 +1,7 @@
 package itbootcampFinalProject.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +37,8 @@ public class SignupPage extends BasePage{
         getEmail().sendKeys(email);
         getPassword().sendKeys(password);
         getConfirmPassword().sendKeys(confirmPassword);
-        getSignUpBtn().click();
+        getConfirmPassword().sendKeys(Keys.ENTER);
+       // getSignUpBtn().click();
     }
 
 
