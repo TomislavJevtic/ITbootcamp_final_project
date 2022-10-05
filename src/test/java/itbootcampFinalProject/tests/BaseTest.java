@@ -2,6 +2,7 @@ package itbootcampFinalProject.tests;
 
 import itbootcampFinalProject.pages.HomePage;
 import itbootcampFinalProject.pages.LoginPage;
+import itbootcampFinalProject.pages.SignupPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +21,7 @@ public abstract class BaseTest {
 
     protected HomePage homePage;
     protected LoginPage loginPage;
+    protected SignupPage signupPage;
 
     public BaseTest() {
     }
@@ -30,16 +32,18 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(16));
 
         homePage = new HomePage(driver, driverWait);
         loginPage = new LoginPage(driver, driverWait);
+        signupPage = new SignupPage(driver,driverWait);
 
     }
 
     @BeforeMethod
     public void methodSetup() {
         driver.get("https://vue-demo.daniel-avellaneda.com/");
+        driver.manage().deleteAllCookies();
     }
 
     @AfterClass

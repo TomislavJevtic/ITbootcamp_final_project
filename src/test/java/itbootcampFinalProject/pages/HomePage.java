@@ -13,6 +13,7 @@ public class HomePage extends BasePage {
 
     private By loginBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[3]");
     private By signUpBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[4]");
+    private By logoutBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]");
 
     public WebElement getLanguageBtn() {
         return getDriver().findElement(languageBtn);
@@ -33,6 +34,11 @@ public class HomePage extends BasePage {
     public WebElement getHomeBtn() {
         return getDriver().findElement(homeBtn);
     }
+
+    public WebElement getLogoutBtn() {
+        return getDriver().findElement(logoutBtn);
+    }
+
 
     public void loginBtnClick() {
         getLoginBtn().click();
