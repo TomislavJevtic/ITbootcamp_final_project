@@ -51,6 +51,7 @@ public class SignupTests extends BaseTest {
         Assert.assertEquals(actualUrl, expectedRes);
 
     }
+
     @Test
     public void test4() {
 
@@ -60,8 +61,8 @@ public class SignupTests extends BaseTest {
         String myPassword = "123654";
         signupPage.completeSignUpForm(myName, myEmail, myPassword, myPassword);
         driverWait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button"))));
-        String expectedResult= "IMPORTANT: Verify your account";
-        String actualPopupMessage=driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[1]")).getText();
+        String expectedResult = "IMPORTANT: Verify your account";
+        String actualPopupMessage = driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[1]")).getText();
 
         Assert.assertEquals(actualPopupMessage, expectedResult);
 

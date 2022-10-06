@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest {
         String expectedUrl = "https://vue-demo.daniel-avellaneda.com/login";
         String actualUrlR = driver.getCurrentUrl();
         Assert.assertEquals(actualUrlR, expectedUrl);
-        // System.out.println(loginPage.getUsernameF().getAttribute("type"));
+
     }
 
     @Test()
@@ -32,11 +32,10 @@ public class LoginTests extends BaseTest {
 
     }
 
-    //  getDriverWait().until(ExpectedConditions.elementToBeClickable(logoutMenuOption));
 
     @Test
     public void test3() {
-//        loginPage.getUsernameF().clear();
+
         Faker faker = new Faker();
         homePage.loginBtnClick();
         loginPage.login(faker.bothify("????##@gmail.com"), faker.funnyName().name());
@@ -50,7 +49,6 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void test4() {
-//        loginPage.getUsernameF().clear();
         Faker faker = new Faker();
         homePage.loginBtnClick();
         String validUser = " admin@admin.com";

@@ -38,8 +38,8 @@ public abstract class BaseTest {
 
         homePage = new HomePage(driver, driverWait);
         loginPage = new LoginPage(driver, driverWait);
-        signupPage = new SignupPage(driver,driverWait);
-        adminPage = new AdminPage(driver,driverWait);
+        signupPage = new SignupPage(driver, driverWait);
+        adminPage = new AdminPage(driver, driverWait);
     }
 
     @BeforeMethod
@@ -49,9 +49,9 @@ public abstract class BaseTest {
     }
 
     @AfterClass
-    public void afterClass() throws InterruptedException {
-        Thread.sleep(5000);
-        // driver.quit();
+    public void afterClass() {
+
+        driver.quit();
     }
 
 }

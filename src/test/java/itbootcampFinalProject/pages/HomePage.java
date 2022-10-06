@@ -44,6 +44,7 @@ public class HomePage extends BasePage {
     public WebElement getAdminBtn() {
         return getDriver().findElement(adminBtn);
     }
+
     public WebElement getAdminBtnCities() {
         return getDriver().findElement(adminBtnCities);
     }
