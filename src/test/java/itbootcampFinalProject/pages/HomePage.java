@@ -14,6 +14,8 @@ public class HomePage extends BasePage {
     private By loginBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[3]");
     private By signUpBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[4]");
     private By logoutBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]");
+    private By adminBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]");
+    private By adminBtnCities = By.xpath("//div[normalize-space()='Cities']");
 
     public WebElement getLanguageBtn() {
         return getDriver().findElement(languageBtn);
@@ -37,6 +39,13 @@ public class HomePage extends BasePage {
 
     public WebElement getLogoutBtn() {
         return getDriver().findElement(logoutBtn);
+    }
+
+    public WebElement getAdminBtn() {
+        return getDriver().findElement(adminBtn);
+    }
+    public WebElement getAdminBtnCities() {
+        return getDriver().findElement(adminBtnCities);
     }
 
 

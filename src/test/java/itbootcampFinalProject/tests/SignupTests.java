@@ -42,7 +42,8 @@ public class SignupTests extends BaseTest {
         String validPassword = "123654";
         signupPage.completeSignUpForm(randomName, validEmail, validPassword, validPassword);
 
-        boolean actualErrorMessage = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/ul/li")).getText().equalsIgnoreCase("E-mail already exists");
+        boolean actualErrorMessage = driver.findElement
+                (By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/ul/li")).getText().equalsIgnoreCase("E-mail already exists");
         boolean expectedRes = true;
 
         Assert.assertEquals(actualErrorMessage, expectedRes);

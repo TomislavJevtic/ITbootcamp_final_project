@@ -1,5 +1,6 @@
 package itbootcampFinalProject.tests;
 
+import itbootcampFinalProject.pages.AdminPage;
 import itbootcampFinalProject.pages.HomePage;
 import itbootcampFinalProject.pages.LoginPage;
 import itbootcampFinalProject.pages.SignupPage;
@@ -22,6 +23,7 @@ public abstract class BaseTest {
     protected HomePage homePage;
     protected LoginPage loginPage;
     protected SignupPage signupPage;
+    protected AdminPage adminPage;
 
     public BaseTest() {
     }
@@ -37,7 +39,7 @@ public abstract class BaseTest {
         homePage = new HomePage(driver, driverWait);
         loginPage = new LoginPage(driver, driverWait);
         signupPage = new SignupPage(driver,driverWait);
-
+        adminPage = new AdminPage(driver,driverWait);
     }
 
     @BeforeMethod
