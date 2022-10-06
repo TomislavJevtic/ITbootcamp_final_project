@@ -1,9 +1,8 @@
 package itbootcampFinalProject.tests;
-/*
-•	Verifikovati da se u url-u stranice javlja /admin/cities ruta
-•	Verifikovati postojanje logut dugmeta
 
- */
+
+
+
 
 import com.github.javafaker.Faker;
 import itbootcampFinalProject.pages.AdminPage;
@@ -30,44 +29,45 @@ public class AdminCityTests extends BaseTest {
         boolean expLogoutBtn = true;
         boolean actualLogBtn = adminPage.getLogoutBtn().isEnabled();
         Assert.assertEquals(expLogoutBtn, actualLogBtn);
-        adminPage.getLogoutBtn().click();
+
     }
 
-    @Test
+    @Test(dependsOnMethods = "test1")
     public void test2() {
         Faker faker = new Faker();
-        homePage.loginBtnClick();
-        String validUser = " admin@admin.com";
-        String validPassword = "12345";
-        loginPage.login(validUser, validPassword);
+//        homePage.loginBtnClick();
+//        String validUser = " admin@admin.com";
+//        String validPassword = "12345";
+//        loginPage.login(validUser, validPassword);
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
         adminPage.getNewItemBtn().click();
-        String newCity = "Stalac";//faker.address().cityName();
+        String newCity = "Stallac";//faker.address().cityName();
         driver.findElement(By.id("name")).sendKeys(newCity);
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div[3]/button[2]")).click();
+        driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")));
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")).click();
         String actualMessage = driver.findElement(By.xpath
                 ("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]")).getText();
         boolean isExpMessage = true;
         boolean isActualMessage = actualMessage.contains("Saved successfully");
         Assert.assertEquals(isExpMessage, isActualMessage);
-        homePage.getLogoutBtn().click();
+
     }
 
-    @Test
+    @Test(dependsOnMethods = "test2")
     public void test3() {
-        homePage.loginBtnClick();
-        String validUser = " admin@admin.com";
-        String validPassword = "12345";
-        loginPage.login(validUser, validPassword);
+//        homePage.loginBtnClick();
+//        String validUser = " admin@admin.com";
+//        String validPassword = "12345";
+//        loginPage.login(validUser, validPassword);
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
         adminPage.getFirstEditBtn().click();
         driver.findElement(By.id("name")).sendKeys("-edited");
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div[3]/button[2]")).click();
-        // Thread.sleep(1000);
+        driverWait.until(ExpectedConditions.elementToBeClickable(By.className("btnSave")));
+        driver.findElement(By.className("btnSave")).click();
         driverWait.until(ExpectedConditions.visibilityOfAllElements
                 (driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]"))));
         String actualMessage = driver.findElement(By.xpath
@@ -78,31 +78,31 @@ public class AdminCityTests extends BaseTest {
 
     }
 
-    @Test()
+    @Test(dependsOnMethods = "test3")
     public void test4() throws InterruptedException {
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
-        adminPage.getSearchF().sendKeys("Stalac-edited");
+        adminPage.getSearchF().sendKeys("Stallac-edited");
         boolean isDisplayed = true;
-        Thread.sleep(500);
+      //  Thread.sleep(1000);
         String actualEdit = driver.findElement(By.xpath
                 ("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr/td[2]")).getText();
-        boolean actualDisplayed = actualEdit.contains("Stalac-edited");
+        boolean actualDisplayed = actualEdit.contains("Stallac-edited");
         Assert.assertEquals(isDisplayed, actualDisplayed);
     }
 
-    @Test()
+    @Test(dependsOnMethods = "test4")
     public void test5() {
 
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
-        adminPage.getSearchF().sendKeys("Stalac-edited");
+        adminPage.getSearchF().sendKeys("Stallac-edited");
         boolean isDisplayed = true;
         String actualEdit = driver.findElement(By.xpath
                 ("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[1]/div[2]/table/tbody/tr/td[2]")).getText();
-        boolean actualDisplayed = actualEdit.contains("Stalac-edited");
+        boolean actualDisplayed = actualEdit.contains("Stallac-edited");
         Assert.assertEquals(isDisplayed, actualDisplayed);
         adminPage.getFirstDeleteBtn().click();
         driverWait.until(ExpectedConditions.visibilityOfAllElements(driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[2]/button[2]"))));
