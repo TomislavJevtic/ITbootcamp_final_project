@@ -1,14 +1,6 @@
 package itbootcampFinalProject.tests;
 
-
-
-
-
-import com.github.javafaker.Faker;
-import itbootcampFinalProject.pages.AdminPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -34,16 +26,12 @@ public class AdminCityTests extends BaseTest {
 
     @Test(dependsOnMethods = "test1")
     public void test2() {
-        Faker faker = new Faker();
-//        homePage.loginBtnClick();
-//        String validUser = " admin@admin.com";
-//        String validPassword = "12345";
-//        loginPage.login(validUser, validPassword);
+
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
         adminPage.getNewItemBtn().click();
-        String newCity = "Stallac";//faker.address().cityName();
+        String newCity = "Stallac";
         driver.findElement(By.id("name")).sendKeys(newCity);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")));
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")).click();
@@ -57,10 +45,7 @@ public class AdminCityTests extends BaseTest {
 
     @Test(dependsOnMethods = "test2")
     public void test3() {
-//        homePage.loginBtnClick();
-//        String validUser = " admin@admin.com";
-//        String validPassword = "12345";
-//        loginPage.login(validUser, validPassword);
+
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 
