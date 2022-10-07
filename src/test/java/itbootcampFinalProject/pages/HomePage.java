@@ -10,8 +10,9 @@ public class HomePage extends BasePage {
     private By languageBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/button");
     private By homeBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[1]");
     private By aboutBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[2]");
-
     private By loginBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[3]");
+
+    private By myProfile = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/a[3]");
     private By signUpBtn = By.xpath("//*[@id=\"app\"]/div/div/header/div/div[3]/a[4]");
     private By logoutBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]");
     private By adminBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]");
@@ -23,7 +24,9 @@ public class HomePage extends BasePage {
     private By uaBtn = By.className("btnUA");
 
 
-
+    public WebElement getMyProfile() {
+        return getDriver().findElement(myProfile);
+    }
     public WebElement getLanguageBtn() {
         return getDriver().findElement(languageBtn);
     }
