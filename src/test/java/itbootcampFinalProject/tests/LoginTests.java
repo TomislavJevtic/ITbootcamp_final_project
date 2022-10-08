@@ -53,16 +53,14 @@ public class LoginTests extends BaseTest {
         homePage.loginBtnClick();
         String validUser = " admin@admin.com";
         loginPage.login(validUser, faker.funnyName().name());
+
         String actualResult = driver.findElement
                 (By.xpath(" //*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li")).getText();
-
         String expResult = "Wrong password";
         Assert.assertEquals(actualResult, expResult);
 
         boolean actualUrl = driver.getCurrentUrl().contains("/login");
-        boolean expectedUrl = true;
-
-        Assert.assertEquals(actualUrl, expectedUrl);
+        Assert.assertTrue(actualUrl);
 
     }
 
@@ -84,7 +82,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void test6() throws InterruptedException {
+    public void test6() {
         String validUser = " admin@admin.com";
         String validPassword = "12345";
 
@@ -93,19 +91,17 @@ public class LoginTests extends BaseTest {
         driverWait.until(ExpectedConditions.urlContains("/home"));
         WebElement logoutBtn =
                 driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]"));
-        boolean isClickableLogout = logoutBtn.isEnabled();
 
-        boolean expectedClickable = true;
-        Assert.assertEquals(expectedClickable, isClickableLogout);
+        boolean isClickableLogout = logoutBtn.isEnabled();
+        Assert.assertTrue(isClickableLogout);
+
         logoutBtn.click();
 
-        boolean expectedUrl = true;
         boolean actualUrl = driver.getCurrentUrl().contains("/login");
-        Assert.assertEquals(expectedUrl, actualUrl);
+        Assert.assertTrue(actualUrl);
 
         driver.get("https://vue-demo.daniel-avellaneda.com/home");
         String expHomeUrlWhenLogout = "https://vue-demo.daniel-avellaneda.com/login";
-        Thread.sleep(2000);
         String actualUrlWhenLogout = driver.getCurrentUrl();
         Assert.assertEquals(expHomeUrlWhenLogout, actualUrlWhenLogout);
 

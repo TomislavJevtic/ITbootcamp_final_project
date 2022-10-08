@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SignupPage extends BasePage{
+public class SignupPage extends BasePage {
     private By name = By.id("name");
     private By email = By.id("email");
     private By password = By.id("password");
@@ -14,33 +14,38 @@ public class SignupPage extends BasePage{
     private By signMeUp =
             By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/a[4]");
 
-    public WebElement getName(){
+    public WebElement getName() {
         return getDriver().findElement(name);
     }
-    public WebElement getEmail(){
+
+    public WebElement getEmail() {
         return getDriver().findElement(email);
     }
-    public WebElement getPassword(){
+
+    public WebElement getPassword() {
         return getDriver().findElement(password);
     }
-    public WebElement getConfirmPassword(){
+
+    public WebElement getConfirmPassword() {
         return getDriver().findElement(confirmPassword);
     }
-    public WebElement getSignUpBtn(){
+
+    public WebElement getSignUpBtn() {
         return getDriver().findElement(signMeUp);
     }
-    public void getSignUpClick(){
-       getSignUpBtn().click();
+
+    public void getSignUpClick() {
+        getSignUpBtn().click();
     }
-    public void completeSignUpForm(String name,String email,String password,String confirmPassword){
+
+    public void completeSignUpForm(String name, String email, String password, String confirmPassword) {
         getName().sendKeys(name);
         getEmail().sendKeys(email);
         getPassword().sendKeys(password);
         getConfirmPassword().sendKeys(confirmPassword);
         getConfirmPassword().sendKeys(Keys.ENTER);
-       // getSignUpBtn().click();
+        // getSignUpBtn().click();
     }
-
 
 
     public SignupPage(WebDriver driver, WebDriverWait driverWait) {

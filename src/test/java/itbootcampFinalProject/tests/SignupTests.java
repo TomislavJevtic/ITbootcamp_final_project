@@ -13,23 +13,22 @@ public class SignupTests extends BaseTest {
     @Test
     public void test1() {
         signupPage.getSignUpClick();
-        boolean expected = true;
         boolean actual = driver.getCurrentUrl().contains("/signup");
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
 
     }
 
     @Test
     public void test2() {
         signupPage.getSignUpClick();
-        boolean expectedType = true;
+
         boolean actualEmailType = signupPage.getEmail().getAttribute("type").equalsIgnoreCase("email");
         boolean actualPasswordType = signupPage.getPassword().getAttribute("type").equalsIgnoreCase("password");
         boolean actualConfirmPassType = signupPage.getConfirmPassword().getAttribute("type").equalsIgnoreCase("password");
 
-        Assert.assertEquals(expectedType, actualEmailType);
-        Assert.assertEquals(expectedType, actualPasswordType);
-        Assert.assertEquals(expectedType, actualConfirmPassType);
+        Assert.assertTrue(actualEmailType);
+        Assert.assertTrue(actualPasswordType);
+        Assert.assertTrue(actualConfirmPassType);
 
     }
 
@@ -44,11 +43,10 @@ public class SignupTests extends BaseTest {
 
         boolean actualErrorMessage = driver.findElement
                 (By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/ul/li")).getText().equalsIgnoreCase("E-mail already exists");
-        boolean expectedRes = true;
+        Assert.assertTrue(actualErrorMessage);
 
-        Assert.assertEquals(actualErrorMessage, expectedRes);
         boolean actualUrl = driver.getCurrentUrl().contains("/signup");
-        Assert.assertEquals(actualUrl, expectedRes);
+        Assert.assertTrue(actualUrl);
 
     }
 

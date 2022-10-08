@@ -6,11 +6,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ProfileTests extends BaseTest{
-    Faker faker = new Faker();
+public class ProfileTests extends BaseTest {
+
 
     @Test
-    public void test1(){
+    public void test1() {
+        Faker faker = new Faker();
         String nameF = faker.name().firstName();
         String phoneF = faker.number().digits(6);
         String cityF = faker.address().city();
@@ -26,7 +27,7 @@ public class ProfileTests extends BaseTest{
         homePage.getMyProfile().click();
 
 
-        myProfilePage.editProfile(nameF,phoneF,cityF,countryF,twitterF,gitHubF);
+        myProfilePage.editProfile(nameF, phoneF, cityF, countryF, twitterF, gitHubF);
         myProfilePage.getSaveBtn().click();
 
         driverWait.until(ExpectedConditions.visibilityOfAllElements(
@@ -36,6 +37,11 @@ public class ProfileTests extends BaseTest{
                 driver.findElement(By.xpath
                         ("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]")).getText().contains("Profile saved successfuly");
         Assert.assertTrue(isSuccessDisplayed);
+
+        System.out.println(driver.findElement(By.id("name")).getText());
+
+        boolean isNameValid = myProfilePage.getName().getAttribute("value").contains(nameF);
+        Assert.assertTrue(isNameValid);
 
     }
 

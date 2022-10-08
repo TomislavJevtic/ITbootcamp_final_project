@@ -27,6 +27,7 @@ public class HomePage extends BasePage {
     public WebElement getMyProfile() {
         return getDriver().findElement(myProfile);
     }
+
     public WebElement getLanguageBtn() {
         return getDriver().findElement(languageBtn);
     }
@@ -58,22 +59,26 @@ public class HomePage extends BasePage {
     public WebElement getAdminBtnCities() {
         return getDriver().findElement(adminBtnCities);
     }
+
     public WebElement getEnBtn() {
         return getDriver().findElement(enBtn);
     }
+
     public WebElement getEsBtn() {
         return getDriver().findElement(esBtn);
     }
+
     public WebElement getFrBtn() {
         return getDriver().findElement(frBtn);
     }
+
     public WebElement getCnBtn() {
         return getDriver().findElement(cnBtn);
     }
+
     public WebElement getUaBtn() {
         return getDriver().findElement(uaBtn);
     }
-
 
 
     public void loginBtnClick() {

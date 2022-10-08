@@ -35,7 +35,7 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver, driverWait);
         signupPage = new SignupPage(driver, driverWait);
         adminPage = new AdminPage(driver, driverWait);
-        myProfilePage = new MyProfilePage(driver,driverWait);
+        myProfilePage = new MyProfilePage(driver, driverWait);
     }
 
     @BeforeMethod
@@ -46,8 +46,7 @@ public abstract class BaseTest {
 
     @AfterClass
     public void afterClass() {
-
-      // driver.quit();
+        driver.quit();
     }
 
 }

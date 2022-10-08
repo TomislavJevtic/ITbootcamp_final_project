@@ -44,7 +44,7 @@ public class MyProfilePage extends BasePage {
         return getDriver().findElement(gitHub);
     }
 
-    public void editProfile(String name,String phone, String city,String country,String twit,String git){
+    public void editProfile(String name, String phone, String city, String country, String twit, String git) {
         getName().sendKeys(Keys.CONTROL + "A", Keys.DELETE);
         getPhone().sendKeys(Keys.CONTROL + "A", Keys.DELETE);
         getCity().sendKeys(Keys.CONTROL + "A", Keys.DELETE);

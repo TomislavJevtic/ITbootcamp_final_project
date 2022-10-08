@@ -15,8 +15,9 @@ public class LocaleTests extends BaseTest {
         String actualTxt = driver.findElement(By.tagName("H1")).getText();
         System.out.println(actualTxt);
 
-        Assert.assertEquals(actualTxt,expectedTxt);
+        Assert.assertEquals(actualTxt, expectedTxt);
     }
+
     @Test
     public void test2() {
         homePage.getLanguageBtn().click();
@@ -26,8 +27,9 @@ public class LocaleTests extends BaseTest {
         String actualTxt = driver.findElement(By.tagName("H1")).getText();
         System.out.println(actualTxt);
 
-        Assert.assertEquals(actualTxt,expectedTxt);
+        Assert.assertEquals(actualTxt, expectedTxt);
     }
+
     @Test
     public void test3() {
         homePage.getLanguageBtn().click();
@@ -37,6 +39,6 @@ public class LocaleTests extends BaseTest {
         String actualTxt = driver.findElement(By.tagName("H1")).getText();
         System.out.println(actualTxt);
 
-        Assert.assertEquals(actualTxt,expectedTxt);
+        Assert.assertEquals(actualTxt, expectedTxt);
     }
 }
