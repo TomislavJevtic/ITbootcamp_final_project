@@ -11,7 +11,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void test1() {
+    public void visitsTheSignupPage_test() {
         signupPage.getSignUpClick();
         boolean actual = driver.getCurrentUrl().contains("/signup");
         Assert.assertTrue(actual);
@@ -19,7 +19,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void test2() {
+    public void checksInputTypes_test() {
         signupPage.getSignUpClick();
 
         boolean actualEmailType = signupPage.getEmail().getAttribute("type").equalsIgnoreCase("email");
@@ -33,7 +33,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void test3() {
+    public void displaysErrorsWhenUserAlreadyExists_test() {
 
         signupPage.getSignUpClick();
         String randomName = "TestTest";
@@ -51,18 +51,23 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void test4() {
+    public void signup_test() {
 
         signupPage.getSignUpClick();
         String myName = "Tomislav Jevtic";
-        String myEmail = "tomislav.jevtic@itbootcamp.rs";
+        String myEmail = "tomislav.jevtic7@itbootcamp.rs";
         String myPassword = "123654";
         signupPage.completeSignUpForm(myName, myEmail, myPassword, myPassword);
         driverWait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button"))));
         String expectedResult = "IMPORTANT: Verify your account";
         String actualPopupMessage = driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[1]")).getText();
+        // close popup window
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button")).click();
+        //logoutBtn when not admin
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]")).click();
 
         Assert.assertEquals(actualPopupMessage, expectedResult);
+
 
     }
 

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class AdminCityTests extends BaseTest {
 
     @Test
-    public void test1() {
+    public void VisitsAdminPageAndListCities() {
         homePage.loginBtnClick();
         String validUser = " admin@admin.com";
         String validPassword = "12345";
@@ -24,8 +24,8 @@ public class AdminCityTests extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "test1")
-    public void test2() {
+    @Test(dependsOnMethods = "VisitsAdminPageAndListCities")
+    public void createNewCity() {
 
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
@@ -35,6 +35,7 @@ public class AdminCityTests extends BaseTest {
         driver.findElement(By.id("name")).sendKeys(newCity);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")));
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button[2]")).click();
+
         String actualMessage = driver.findElement(By.xpath
                 ("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]")).getText();
 
@@ -43,8 +44,8 @@ public class AdminCityTests extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "test2")
-    public void test3() {
+    @Test(dependsOnMethods = "createNewCity")
+    public void editCity() {
 
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
@@ -63,8 +64,8 @@ public class AdminCityTests extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "test3")
-    public void test4() {
+    @Test(dependsOnMethods = "editCity")
+    public void searchCity() {
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
         adminPage.getSearchF().sendKeys("Stalac-edited");
@@ -75,8 +76,8 @@ public class AdminCityTests extends BaseTest {
         Assert.assertTrue(actualDisplayed);
     }
 
-    @Test(dependsOnMethods = "test4")
-    public void test5() {
+    @Test(dependsOnMethods = "searchCity")
+    public void deleteCity() {
 
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();

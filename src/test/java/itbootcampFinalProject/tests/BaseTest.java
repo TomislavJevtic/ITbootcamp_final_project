@@ -13,7 +13,6 @@ import java.time.Duration;
 public abstract class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait driverWait;
-
     protected HomePage homePage;
     protected LoginPage loginPage;
     protected SignupPage signupPage;

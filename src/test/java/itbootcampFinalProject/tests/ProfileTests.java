@@ -10,7 +10,7 @@ public class ProfileTests extends BaseTest {
 
 
     @Test
-    public void test1() {
+    public void editProfileTest() {
         Faker faker = new Faker();
         String nameF = faker.name().firstName();
         String phoneF = faker.number().digits(6);
