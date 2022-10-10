@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class LocaleTests extends BaseTest {
     @Test
-    public void setToEs_test() {
+    public void setToEs() {
         homePage.getLanguageBtn().click();
         driverWait.until(ExpectedConditions.visibilityOfAllElements(homePage.getEsBtn()));
         homePage.getEsBtn().click();
@@ -19,7 +19,7 @@ public class LocaleTests extends BaseTest {
     }
 
     @Test
-    public void setToEn_test() {
+    public void setToEn() {
         homePage.getLanguageBtn().click();
         driverWait.until(ExpectedConditions.visibilityOfAllElements(homePage.getEnBtn()));
         homePage.getEnBtn().click();
@@ -31,7 +31,7 @@ public class LocaleTests extends BaseTest {
     }
 
     @Test
-    public void setToFr_test() {
+    public void setToFr() {
         homePage.getLanguageBtn().click();
         driverWait.until(ExpectedConditions.visibilityOfAllElements(homePage.getFrBtn()));
         homePage.getFrBtn().click();

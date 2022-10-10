@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class AdminCityTests extends BaseTest {
 
     @Test
-    public void VisitsAdminPageAndListCities() {
+    public void visitsAdminPageAndListCities() {
         homePage.loginBtnClick();
         String validUser = " admin@admin.com";
         String validPassword = "12345";
@@ -24,7 +24,7 @@ public class AdminCityTests extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "VisitsAdminPageAndListCities")
+    @Test(dependsOnMethods = "visitsAdminPageAndListCities")
     public void createNewCity() {
 
         homePage.getAdminBtn().click();

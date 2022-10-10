@@ -11,7 +11,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void visitsTheLoginPage_test() {
+    public void visitsTheLoginPage() {
         homePage.loginBtnClick();
         String expectedUrl = "https://vue-demo.daniel-avellaneda.com/login";
         String actualUrlR = driver.getCurrentUrl();
@@ -20,7 +20,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test()
-    public void checksInputTypes_test() {
+    public void checksInputTypes() {
         homePage.loginBtnClick();
         String expUsernameType = "email";
         String expPasswordType = "password";
@@ -34,7 +34,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void displaysErrorsWhenUserDoesNotExist_test() {
+    public void displaysErrorsWhenUserDoesNotExist() {
 
         Faker faker = new Faker();
         homePage.loginBtnClick();
@@ -48,7 +48,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void displaysErrorsWhenPasswordWrong_test() {
+    public void displaysErrorsWhenPasswordWrong() {
         Faker faker = new Faker();
         homePage.loginBtnClick();
         String validUser = " admin@admin.com";
@@ -65,7 +65,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void validLogin_test() {
+    public void validLogin() {
         String validUser = " admin@admin.com";
         String validPassword = "12345";
         homePage.loginBtnClick();
@@ -82,7 +82,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void logout_test() {
+    public void logout() {
         String validUser = " admin@admin.com";
         String validPassword = "12345";
 

@@ -11,7 +11,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void visitsTheSignupPage_test() {
+    public void visitsTheSignupPage() {
         signupPage.getSignUpClick();
         boolean actual = driver.getCurrentUrl().contains("/signup");
         Assert.assertTrue(actual);
@@ -19,7 +19,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void checksInputTypes_test() {
+    public void checksInputTypes() {
         signupPage.getSignUpClick();
 
         boolean actualEmailType = signupPage.getEmail().getAttribute("type").equalsIgnoreCase("email");
@@ -33,7 +33,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void displaysErrorsWhenUserAlreadyExists_test() {
+    public void displaysErrorsWhenUserAlreadyExists() {
 
         signupPage.getSignUpClick();
         String randomName = "TestTest";
@@ -51,19 +51,19 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void signup_test() {
+    public void signup() {
 
         signupPage.getSignUpClick();
         String myName = "Tomislav Jevtic";
-        String myEmail = "tomislav.jevtic7@itbootcamp.rs";
+        String myEmail = "tomislav.jevtic@itbootcamp.rs";
         String myPassword = "123654";
         signupPage.completeSignUpForm(myName, myEmail, myPassword, myPassword);
         driverWait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button"))));
         String expectedResult = "IMPORTANT: Verify your account";
         String actualPopupMessage = driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[1]")).getText();
-        // close popup window
+        //  popup window close
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button")).click();
-        //logoutBtn when not admin
+        // logoutBtn when not admin
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]")).click();
 
         Assert.assertEquals(actualPopupMessage, expectedResult);
