@@ -10,9 +10,7 @@ public class AdminCityTests extends BaseTest {
     @Test
     public void visitsAdminPageAndListCities() {
         homePage.loginBtnClick();
-        String validUser = " admin@admin.com";
-        String validPassword = "12345";
-        loginPage.login(validUser, validPassword);
+        loginPage.login(adminPage.getValidUser(), adminPage.getValidPassword());
         homePage.getAdminBtn().click();
         homePage.getAdminBtnCities().click();
 

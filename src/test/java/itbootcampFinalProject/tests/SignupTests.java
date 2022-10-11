@@ -55,7 +55,7 @@ public class SignupTests extends BaseTest {
 
         signupPage.getSignUpClick();
         String myName = "Tomislav Jevtic";
-        String myEmail = "tomislav.jevtic@itbootcamp.rs";
+        String myEmail = "tomislav.jevtic7@itbootcamp.rs";
         String myPassword = "123654";
         signupPage.completeSignUpForm(myName, myEmail, myPassword, myPassword);
         driverWait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button"))));

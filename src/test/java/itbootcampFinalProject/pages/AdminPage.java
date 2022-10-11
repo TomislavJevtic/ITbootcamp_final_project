@@ -1,6 +1,5 @@
 package itbootcampFinalProject.pages;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +12,16 @@ public class AdminPage extends BasePage {
     private By LogoutBtn = By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]");
     private By firstEditBtn = By.id("edit");
     private By firstDeleteBtn = By.id("delete");
+    private String validUser = " admin@admin.com";
+    private String validPassword = "12345";
 
+    public String getValidUser() {
+        return validUser;
+    }
+
+    public String getValidPassword() {
+        return validPassword;
+    }
 
     public WebElement getSearchF() {
         return getDriver().findElement(searchField);

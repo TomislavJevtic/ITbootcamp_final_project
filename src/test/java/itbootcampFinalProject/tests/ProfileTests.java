@@ -1,6 +1,6 @@
 package itbootcampFinalProject.tests;
 
-import com.github.javafaker.Faker;
+import itbootcampFinalProject.pages.FakerInputs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -11,23 +11,16 @@ public class ProfileTests extends BaseTest {
 
     @Test
     public void editProfileTest() {
-        Faker faker = new Faker();
-        String nameF = faker.name().firstName();
-        String phoneF = faker.number().digits(6);
-        String cityF = faker.address().city();
-        String countryF = faker.address().country();
-        String twitterF = faker.bothify("https://???????.com");
-        String gitHubF = faker.bothify("https://???????.com");
+
 
         homePage.loginBtnClick();
-        String validUser = " admin@admin.com";
-        String validPassword = "12345";
-        loginPage.login(validUser, validPassword);
+        loginPage.login(adminPage.getValidUser(), adminPage.getValidPassword());
 
         homePage.getMyProfile().click();
+        FakerInputs fake = new FakerInputs();
 
 
-        myProfilePage.editProfile(nameF, phoneF, cityF, countryF, twitterF, gitHubF);
+        myProfilePage.editProfile(fake.getNameF(), fake.getPhoneF(), fake.getCityF(), fake.getCountryF(), fake.getTwitterF(), fake.getGitHubF());
         myProfilePage.getSaveBtn().click();
 
         driverWait.until(ExpectedConditions.visibilityOfAllElements(
@@ -40,7 +33,7 @@ public class ProfileTests extends BaseTest {
 
         System.out.println(driver.findElement(By.id("name")).getText());
 
-        boolean isNameValid = myProfilePage.getName().getAttribute("value").contains(nameF);
+        boolean isNameValid = myProfilePage.getName().getAttribute("value").contains(fake.getNameF());
         Assert.assertTrue(isNameValid);
 
     }
